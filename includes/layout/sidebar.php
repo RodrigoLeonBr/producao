@@ -10,7 +10,12 @@ $current_page = basename($_SERVER['PHP_SELF']);
 <!-- Sidebar -->
 <div class="sidebar" id="sidebar">
     <div class="sidebar-logo">
-        <img src="<?php echo dirname($_SERVER['PHP_SELF']); ?>/logo-pma.png" alt="Logo PMA">
+        <div class="logo-container">
+            <img src="<?php echo dirname($_SERVER['PHP_SELF']); ?>/logo-pma.png" alt="Logo PMA" class="logo-img">
+        </div>
+        <div class="menu-icon">
+            <i class="fas fa-bars"></i>
+        </div>
     </div>
     <nav class="nav flex-column">
         <a href="<?php echo dirname($_SERVER['PHP_SELF']); ?>/dashboard.php" class="nav-link <?php echo $current_page == 'dashboard.php' ? 'active' : ''; ?>">
