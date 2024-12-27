@@ -1,0 +1,266 @@
+[26-Dec-2024 04:57:11 Europe/Berlin] Iniciando execução da query
+[26-Dec-2024 04:57:11 Europe/Berlin] Arquivo de configuração carregado
+[26-Dec-2024 04:57:11 Europe/Berlin] Input recebido: {"sql":"SELECT prd_uid, re_cnome, prd_pa, procedimento, prd_mvm, prd_cbo, descricao, prd_idade, SUM(prd_qt_a) as prd_qt_a, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p, rub_dc, financiamento, relatorio FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cod WHERE prd_uid = '2058790' GROUP BY prd_uid, re_cnome, prd_pa, procedimento, prd_mvm, prd_cbo, descricao, prd_idade, rub_dc, financiamento, relatorio","page":1,"itemsPerPage":50}
+[26-Dec-2024 04:57:11 Europe/Berlin] SQL recebido: SELECT prd_uid, re_cnome, prd_pa, procedimento, prd_mvm, prd_cbo, descricao, prd_idade, SUM(prd_qt_a) as prd_qt_a, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p, rub_dc, financiamento, relatorio FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cod WHERE prd_uid = '2058790' GROUP BY prd_uid, re_cnome, prd_pa, procedimento, prd_mvm, prd_cbo, descricao, prd_idade, rub_dc, financiamento, relatorio
+[26-Dec-2024 04:57:11 Europe/Berlin] Conexão com o banco estabelecida
+[26-Dec-2024 04:57:11 Europe/Berlin] SQL com limite: SELECT prd_uid, re_cnome, prd_pa, procedimento, prd_mvm, prd_cbo, descricao, prd_idade, SUM(prd_qt_a) as prd_qt_a, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p, rub_dc, financiamento, relatorio FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cod WHERE prd_uid = '2058790' GROUP BY prd_uid, re_cnome, prd_pa, procedimento, prd_mvm, prd_cbo, descricao, prd_idade, rub_dc, financiamento, relatorio LIMIT 50 OFFSET 0
+[26-Dec-2024 04:57:11 Europe/Berlin] Erro Exception: Erro na execução da query: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'procedimento' in 'field list'
+[26-Dec-2024 04:57:31 Europe/Berlin] Iniciando execução da query
+[26-Dec-2024 04:57:31 Europe/Berlin] Arquivo de configuração carregado
+[26-Dec-2024 04:57:31 Europe/Berlin] Input recebido: 
+[26-Dec-2024 04:57:31 Europe/Berlin] Erro Exception: Erro ao decodificar JSON: Syntax error
+[26-Dec-2024 04:58:06 Europe/Berlin] Iniciando execução da query
+[26-Dec-2024 04:58:06 Europe/Berlin] Arquivo de configuração carregado
+[26-Dec-2024 04:58:06 Europe/Berlin] Input recebido: {"sql":"SELECT prd_uid, prd_pa, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd WHERE prd_uid = '2058790' GROUP BY prd_uid, prd_pa","page":1,"itemsPerPage":50}
+[26-Dec-2024 04:58:06 Europe/Berlin] SQL recebido: SELECT prd_uid, prd_pa, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd WHERE prd_uid = '2058790' GROUP BY prd_uid, prd_pa
+[26-Dec-2024 04:58:06 Europe/Berlin] Conexão com o banco estabelecida
+[26-Dec-2024 04:58:06 Europe/Berlin] SQL com limite: SELECT prd_uid, prd_pa, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd WHERE prd_uid = '2058790' GROUP BY prd_uid, prd_pa LIMIT 50 OFFSET 0
+[26-Dec-2024 04:58:06 Europe/Berlin] Query preparada
+[26-Dec-2024 04:58:08 Europe/Berlin] Query executada
+[26-Dec-2024 04:58:08 Europe/Berlin] Resultados obtidos: 50 registros
+[26-Dec-2024 04:58:08 Europe/Berlin] SQL contagem: SELECT COUNT(*) as total FROM (SELECT prd_uid, prd_pa, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd WHERE prd_uid = '2058790' GROUP BY prd_uid, prd_pa) as subquery
+[26-Dec-2024 04:58:09 Europe/Berlin] Total de registros: 685
+[26-Dec-2024 04:58:09 Europe/Berlin] Resposta preparada
+[26-Dec-2024 04:58:09 Europe/Berlin] Resposta enviada com sucesso
+[26-Dec-2024 04:58:19 Europe/Berlin] Iniciando execução da query
+[26-Dec-2024 04:58:19 Europe/Berlin] Arquivo de configuração carregado
+[26-Dec-2024 04:58:19 Europe/Berlin] Input recebido: {"sql":"SELECT prd_uid, re_cnome, prd_pa, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cod WHERE prd_uid = '2058790' GROUP BY prd_uid, re_cnome, prd_pa","page":1,"itemsPerPage":50}
+[26-Dec-2024 04:58:19 Europe/Berlin] SQL recebido: SELECT prd_uid, re_cnome, prd_pa, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cod WHERE prd_uid = '2058790' GROUP BY prd_uid, re_cnome, prd_pa
+[26-Dec-2024 04:58:19 Europe/Berlin] Conexão com o banco estabelecida
+[26-Dec-2024 04:58:19 Europe/Berlin] SQL com limite: SELECT prd_uid, re_cnome, prd_pa, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cod WHERE prd_uid = '2058790' GROUP BY prd_uid, re_cnome, prd_pa LIMIT 50 OFFSET 0
+[26-Dec-2024 04:58:19 Europe/Berlin] Erro Exception: Erro na execução da query: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'prestador.re_cod' in 'on clause'
+[26-Dec-2024 05:03:04 Europe/Berlin] Iniciando execução da query
+[26-Dec-2024 05:03:04 Europe/Berlin] Arquivo de configuração carregado
+[26-Dec-2024 05:03:04 Europe/Berlin] Input recebido: {"sql":"SELECT prd_uid, re_cnome, prd_pa, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cod WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa","page":1,"itemsPerPage":50}
+[26-Dec-2024 05:03:04 Europe/Berlin] SQL recebido: SELECT prd_uid, re_cnome, prd_pa, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cod WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa
+[26-Dec-2024 05:03:04 Europe/Berlin] Conexão com o banco estabelecida
+[26-Dec-2024 05:03:04 Europe/Berlin] SQL com limite: SELECT prd_uid, re_cnome, prd_pa, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cod WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa LIMIT 50 OFFSET 0
+[26-Dec-2024 05:03:04 Europe/Berlin] Erro Exception: Erro na execução da query: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'prestador.re_cod' in 'on clause'
+[26-Dec-2024 05:06:28 Europe/Berlin] Iniciando execução da query
+[26-Dec-2024 05:06:28 Europe/Berlin] Arquivo de configuração carregado
+[26-Dec-2024 05:06:28 Europe/Berlin] Input recebido: {"sql":"SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento","page":1,"itemsPerPage":50}
+[26-Dec-2024 05:06:28 Europe/Berlin] SQL recebido: SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento
+[26-Dec-2024 05:06:28 Europe/Berlin] Conexão com o banco estabelecida
+[26-Dec-2024 05:06:28 Europe/Berlin] SQL com limite: SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento LIMIT 50 OFFSET 0
+[26-Dec-2024 05:06:28 Europe/Berlin] Erro Exception: Erro na execução da query: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'procedimento' in 'field list'
+[26-Dec-2024 05:11:16 Europe/Berlin] Iniciando execução da query
+[26-Dec-2024 05:11:16 Europe/Berlin] Arquivo de configuração carregado
+[26-Dec-2024 05:11:16 Europe/Berlin] Input recebido: {"sql":"SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058970' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento","page":1,"itemsPerPage":50}
+[26-Dec-2024 05:11:16 Europe/Berlin] SQL recebido: SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058970' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento
+[26-Dec-2024 05:11:16 Europe/Berlin] Conexão com o banco estabelecida
+[26-Dec-2024 05:11:16 Europe/Berlin] SQL com limite: SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058970' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento LIMIT 50 OFFSET 0
+[26-Dec-2024 05:11:16 Europe/Berlin] Query preparada
+[26-Dec-2024 05:11:17 Europe/Berlin] Query executada
+[26-Dec-2024 05:11:17 Europe/Berlin] Resultados obtidos: 0 registros
+[26-Dec-2024 05:11:17 Europe/Berlin] SQL contagem: SELECT COUNT(*) as total FROM (SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058970' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento) as subquery
+[26-Dec-2024 05:11:18 Europe/Berlin] Total de registros: 0
+[26-Dec-2024 05:11:18 Europe/Berlin] Resposta preparada
+[26-Dec-2024 05:11:18 Europe/Berlin] Resposta enviada com sucesso
+[26-Dec-2024 05:11:21 Europe/Berlin] Iniciando execução da query
+[26-Dec-2024 05:11:21 Europe/Berlin] Arquivo de configuração carregado
+[26-Dec-2024 05:11:21 Europe/Berlin] Input recebido: {"sql":"SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058970' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento","page":1,"itemsPerPage":50}
+[26-Dec-2024 05:11:21 Europe/Berlin] SQL recebido: SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058970' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento
+[26-Dec-2024 05:11:21 Europe/Berlin] Conexão com o banco estabelecida
+[26-Dec-2024 05:11:21 Europe/Berlin] SQL com limite: SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058970' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento LIMIT 50 OFFSET 0
+[26-Dec-2024 05:11:21 Europe/Berlin] Query preparada
+[26-Dec-2024 05:11:22 Europe/Berlin] Query executada
+[26-Dec-2024 05:11:22 Europe/Berlin] Resultados obtidos: 0 registros
+[26-Dec-2024 05:11:22 Europe/Berlin] SQL contagem: SELECT COUNT(*) as total FROM (SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058970' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento) as subquery
+[26-Dec-2024 05:11:23 Europe/Berlin] Total de registros: 0
+[26-Dec-2024 05:11:23 Europe/Berlin] Resposta preparada
+[26-Dec-2024 05:11:23 Europe/Berlin] Resposta enviada com sucesso
+[26-Dec-2024 05:13:57 Europe/Berlin] Iniciando execução da query
+[26-Dec-2024 05:13:57 Europe/Berlin] Arquivo de configuração carregado
+[26-Dec-2024 05:13:57 Europe/Berlin] Input recebido: {"sql":"SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento","page":1,"itemsPerPage":50}
+[26-Dec-2024 05:13:57 Europe/Berlin] SQL recebido: SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento
+[26-Dec-2024 05:13:57 Europe/Berlin] Conexão com o banco estabelecida
+[26-Dec-2024 05:13:57 Europe/Berlin] SQL com limite: SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento LIMIT 50 OFFSET 0
+[26-Dec-2024 05:13:57 Europe/Berlin] Query preparada
+[26-Dec-2024 05:13:58 Europe/Berlin] Query executada
+[26-Dec-2024 05:13:58 Europe/Berlin] Resultados obtidos: 50 registros
+[26-Dec-2024 05:13:58 Europe/Berlin] SQL contagem: SELECT COUNT(*) as total FROM (SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento) as subquery
+[26-Dec-2024 05:13:59 Europe/Berlin] Total de registros: 302
+[26-Dec-2024 05:13:59 Europe/Berlin] Resposta preparada
+[26-Dec-2024 05:13:59 Europe/Berlin] Resposta enviada com sucesso
+[26-Dec-2024 05:16:06 Europe/Berlin] Iniciando execução da query
+[26-Dec-2024 05:16:06 Europe/Berlin] Arquivo de configuração carregado
+[26-Dec-2024 05:16:06 Europe/Berlin] Input recebido: {"sql":"SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento","page":1,"itemsPerPage":50}
+[26-Dec-2024 05:16:06 Europe/Berlin] SQL recebido: SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento
+[26-Dec-2024 05:16:06 Europe/Berlin] Conexão com o banco estabelecida
+[26-Dec-2024 05:16:06 Europe/Berlin] SQL com limite: SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento LIMIT 50 OFFSET 0
+[26-Dec-2024 05:16:06 Europe/Berlin] Query preparada
+[26-Dec-2024 05:16:07 Europe/Berlin] Query executada
+[26-Dec-2024 05:16:07 Europe/Berlin] Resultados obtidos: 50 registros
+[26-Dec-2024 05:16:07 Europe/Berlin] SQL contagem: SELECT COUNT(*) as total FROM (SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento) as subquery
+[26-Dec-2024 05:16:08 Europe/Berlin] Total de registros: 302
+[26-Dec-2024 05:16:08 Europe/Berlin] Resposta preparada
+[26-Dec-2024 05:16:08 Europe/Berlin] Resposta enviada com sucesso
+[26-Dec-2024 05:16:15 Europe/Berlin] Iniciando execução da query
+[26-Dec-2024 05:16:15 Europe/Berlin] Arquivo de configuração carregado
+[26-Dec-2024 05:16:15 Europe/Berlin] Input recebido: {"sql":"SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento","page":3,"itemsPerPage":50}
+[26-Dec-2024 05:16:15 Europe/Berlin] SQL recebido: SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento
+[26-Dec-2024 05:16:15 Europe/Berlin] Conexão com o banco estabelecida
+[26-Dec-2024 05:16:15 Europe/Berlin] SQL com limite: SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento LIMIT 50 OFFSET 100
+[26-Dec-2024 05:16:15 Europe/Berlin] Query preparada
+[26-Dec-2024 05:16:16 Europe/Berlin] Query executada
+[26-Dec-2024 05:16:16 Europe/Berlin] Resultados obtidos: 50 registros
+[26-Dec-2024 05:16:16 Europe/Berlin] SQL contagem: SELECT COUNT(*) as total FROM (SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento) as subquery
+[26-Dec-2024 05:16:16 Europe/Berlin] Iniciando execução da query
+[26-Dec-2024 05:16:16 Europe/Berlin] Arquivo de configuração carregado
+[26-Dec-2024 05:16:16 Europe/Berlin] Input recebido: {"sql":"SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento","page":7,"itemsPerPage":50}
+[26-Dec-2024 05:16:16 Europe/Berlin] SQL recebido: SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento
+[26-Dec-2024 05:16:16 Europe/Berlin] Conexão com o banco estabelecida
+[26-Dec-2024 05:16:16 Europe/Berlin] SQL com limite: SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento LIMIT 50 OFFSET 300
+[26-Dec-2024 05:16:16 Europe/Berlin] Query preparada
+[26-Dec-2024 05:16:17 Europe/Berlin] Total de registros: 302
+[26-Dec-2024 05:16:17 Europe/Berlin] Resposta preparada
+[26-Dec-2024 05:16:17 Europe/Berlin] Resposta enviada com sucesso
+[26-Dec-2024 05:16:18 Europe/Berlin] Query executada
+[26-Dec-2024 05:16:18 Europe/Berlin] Resultados obtidos: 2 registros
+[26-Dec-2024 05:16:18 Europe/Berlin] SQL contagem: SELECT COUNT(*) as total FROM (SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento) as subquery
+[26-Dec-2024 05:16:19 Europe/Berlin] Total de registros: 302
+[26-Dec-2024 05:16:19 Europe/Berlin] Resposta preparada
+[26-Dec-2024 05:16:19 Europe/Berlin] Resposta enviada com sucesso
+[26-Dec-2024 05:16:21 Europe/Berlin] Iniciando execução da query
+[26-Dec-2024 05:16:21 Europe/Berlin] Arquivo de configuração carregado
+[26-Dec-2024 05:16:21 Europe/Berlin] Input recebido: {"sql":"SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento","page":6,"itemsPerPage":50}
+[26-Dec-2024 05:16:21 Europe/Berlin] SQL recebido: SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento
+[26-Dec-2024 05:16:21 Europe/Berlin] Conexão com o banco estabelecida
+[26-Dec-2024 05:16:21 Europe/Berlin] SQL com limite: SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento LIMIT 50 OFFSET 250
+[26-Dec-2024 05:16:21 Europe/Berlin] Query preparada
+[26-Dec-2024 05:16:23 Europe/Berlin] Query executada
+[26-Dec-2024 05:16:23 Europe/Berlin] Resultados obtidos: 50 registros
+[26-Dec-2024 05:16:23 Europe/Berlin] SQL contagem: SELECT COUNT(*) as total FROM (SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento) as subquery
+[26-Dec-2024 05:16:24 Europe/Berlin] Iniciando execução da query
+[26-Dec-2024 05:16:24 Europe/Berlin] Arquivo de configuração carregado
+[26-Dec-2024 05:16:24 Europe/Berlin] Input recebido: {"sql":"SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento","page":1,"itemsPerPage":50}
+[26-Dec-2024 05:16:24 Europe/Berlin] SQL recebido: SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento
+[26-Dec-2024 05:16:24 Europe/Berlin] Conexão com o banco estabelecida
+[26-Dec-2024 05:16:24 Europe/Berlin] SQL com limite: SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento LIMIT 50 OFFSET 0
+[26-Dec-2024 05:16:24 Europe/Berlin] Query preparada
+[26-Dec-2024 05:16:24 Europe/Berlin] Total de registros: 302
+[26-Dec-2024 05:16:24 Europe/Berlin] Resposta preparada
+[26-Dec-2024 05:16:24 Europe/Berlin] Resposta enviada com sucesso
+[26-Dec-2024 05:16:25 Europe/Berlin] Query executada
+[26-Dec-2024 05:16:25 Europe/Berlin] Resultados obtidos: 50 registros
+[26-Dec-2024 05:16:25 Europe/Berlin] SQL contagem: SELECT COUNT(*) as total FROM (SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento) as subquery
+[26-Dec-2024 05:16:26 Europe/Berlin] Total de registros: 302
+[26-Dec-2024 05:16:26 Europe/Berlin] Resposta preparada
+[26-Dec-2024 05:16:26 Europe/Berlin] Resposta enviada com sucesso
+[26-Dec-2024 05:19:04 Europe/Berlin] Iniciando execução da query
+[26-Dec-2024 05:19:04 Europe/Berlin] Arquivo de configuração carregado
+[26-Dec-2024 05:19:04 Europe/Berlin] Input recebido: {"sql":"SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento","page":1,"itemsPerPage":50}
+[26-Dec-2024 05:19:04 Europe/Berlin] SQL recebido: SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento
+[26-Dec-2024 05:19:04 Europe/Berlin] Conexão com o banco estabelecida
+[26-Dec-2024 05:19:04 Europe/Berlin] SQL com limite: SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento LIMIT 50 OFFSET 0
+[26-Dec-2024 05:19:04 Europe/Berlin] Query preparada
+[26-Dec-2024 05:19:05 Europe/Berlin] Query executada
+[26-Dec-2024 05:19:05 Europe/Berlin] Resultados obtidos: 50 registros
+[26-Dec-2024 05:19:05 Europe/Berlin] SQL contagem: SELECT COUNT(*) as total FROM (SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento) as subquery
+[26-Dec-2024 05:19:06 Europe/Berlin] Total de registros: 302
+[26-Dec-2024 05:19:06 Europe/Berlin] Resposta preparada
+[26-Dec-2024 05:19:06 Europe/Berlin] Resposta enviada com sucesso
+[26-Dec-2024 05:23:09 Europe/Berlin] Iniciando execução da query
+[26-Dec-2024 05:23:09 Europe/Berlin] Arquivo de configuração carregado
+[26-Dec-2024 05:23:09 Europe/Berlin] Input recebido: {"sql":"SELECT prd_uid, re_cnome, prd_pa, procedimento, prd_mvm, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento, prd_mvm","page":1,"itemsPerPage":50}
+[26-Dec-2024 05:23:09 Europe/Berlin] SQL recebido: SELECT prd_uid, re_cnome, prd_pa, procedimento, prd_mvm, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento, prd_mvm
+[26-Dec-2024 05:23:09 Europe/Berlin] Conexão com o banco estabelecida
+[26-Dec-2024 05:23:09 Europe/Berlin] SQL com limite: SELECT prd_uid, re_cnome, prd_pa, procedimento, prd_mvm, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento, prd_mvm LIMIT 50 OFFSET 0
+[26-Dec-2024 05:23:09 Europe/Berlin] Query preparada
+[26-Dec-2024 05:23:10 Europe/Berlin] Query executada
+[26-Dec-2024 05:23:10 Europe/Berlin] Resultados obtidos: 50 registros
+[26-Dec-2024 05:23:10 Europe/Berlin] SQL contagem: SELECT COUNT(*) as total FROM (SELECT prd_uid, re_cnome, prd_pa, procedimento, prd_mvm, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento, prd_mvm) as subquery
+[26-Dec-2024 05:23:11 Europe/Berlin] Total de registros: 302
+[26-Dec-2024 05:23:11 Europe/Berlin] Resposta preparada
+[26-Dec-2024 05:23:11 Europe/Berlin] Resposta enviada com sucesso
+[26-Dec-2024 05:29:50 Europe/Berlin] Iniciando execução da query
+[26-Dec-2024 05:29:50 Europe/Berlin] Arquivo de configuração carregado
+[26-Dec-2024 05:29:50 Europe/Berlin] Input recebido: {"sql":"SELECT prd_uid, re_cnome, prd_pa, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa","page":1,"itemsPerPage":50}
+[26-Dec-2024 05:29:50 Europe/Berlin] SQL recebido: SELECT prd_uid, re_cnome, prd_pa, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa
+[26-Dec-2024 05:29:50 Europe/Berlin] Conexão com o banco estabelecida
+[26-Dec-2024 05:29:50 Europe/Berlin] SQL com limite: SELECT prd_uid, re_cnome, prd_pa, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa LIMIT 50 OFFSET 0
+[26-Dec-2024 05:29:50 Europe/Berlin] Query preparada
+[26-Dec-2024 05:29:51 Europe/Berlin] Query executada
+[26-Dec-2024 05:29:51 Europe/Berlin] Resultados obtidos: 50 registros
+[26-Dec-2024 05:29:51 Europe/Berlin] SQL contagem: SELECT COUNT(*) as total FROM (SELECT prd_uid, re_cnome, prd_pa, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa) as subquery
+[26-Dec-2024 05:29:52 Europe/Berlin] Total de registros: 302
+[26-Dec-2024 05:29:52 Europe/Berlin] Resposta preparada
+[26-Dec-2024 05:29:52 Europe/Berlin] Resposta enviada com sucesso
+[26-Dec-2024 05:40:57 Europe/Berlin] Iniciando execução da query
+[26-Dec-2024 05:40:57 Europe/Berlin] Arquivo de configuração carregado
+[26-Dec-2024 05:40:57 Europe/Berlin] Input recebido: {"sql":"SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento","page":1,"itemsPerPage":50}
+[26-Dec-2024 05:40:57 Europe/Berlin] SQL recebido: SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento
+[26-Dec-2024 05:40:57 Europe/Berlin] Conexão com o banco estabelecida
+[26-Dec-2024 05:40:57 Europe/Berlin] SQL com limite: SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento LIMIT 50 OFFSET 0
+[26-Dec-2024 05:40:57 Europe/Berlin] Query preparada
+[26-Dec-2024 05:40:58 Europe/Berlin] Query executada
+[26-Dec-2024 05:40:58 Europe/Berlin] Resultados obtidos: 50 registros
+[26-Dec-2024 05:40:58 Europe/Berlin] SQL contagem: SELECT COUNT(*) as total FROM (SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento) as subquery
+[26-Dec-2024 05:40:59 Europe/Berlin] Total de registros: 302
+[26-Dec-2024 05:40:59 Europe/Berlin] Resposta preparada
+[26-Dec-2024 05:40:59 Europe/Berlin] Resposta enviada com sucesso
+[26-Dec-2024 05:41:03 Europe/Berlin] Iniciando execução da query
+[26-Dec-2024 05:41:03 Europe/Berlin] Arquivo de configuração carregado
+[26-Dec-2024 05:41:03 Europe/Berlin] Input recebido: {"sql":"SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento","page":7,"itemsPerPage":50}
+[26-Dec-2024 05:41:03 Europe/Berlin] SQL recebido: SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento
+[26-Dec-2024 05:41:03 Europe/Berlin] Conexão com o banco estabelecida
+[26-Dec-2024 05:41:03 Europe/Berlin] SQL com limite: SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento LIMIT 50 OFFSET 300
+[26-Dec-2024 05:41:03 Europe/Berlin] Query preparada
+[26-Dec-2024 05:41:05 Europe/Berlin] Query executada
+[26-Dec-2024 05:41:05 Europe/Berlin] Resultados obtidos: 2 registros
+[26-Dec-2024 05:41:05 Europe/Berlin] SQL contagem: SELECT COUNT(*) as total FROM (SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento) as subquery
+[26-Dec-2024 05:41:06 Europe/Berlin] Total de registros: 302
+[26-Dec-2024 05:41:06 Europe/Berlin] Resposta preparada
+[26-Dec-2024 05:41:06 Europe/Berlin] Resposta enviada com sucesso
+[26-Dec-2024 05:41:11 Europe/Berlin] Iniciando execução da query
+[26-Dec-2024 05:41:11 Europe/Berlin] Arquivo de configuração carregado
+[26-Dec-2024 05:41:11 Europe/Berlin] Input recebido: {"sql":"SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento","page":6,"itemsPerPage":50}
+[26-Dec-2024 05:41:11 Europe/Berlin] SQL recebido: SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento
+[26-Dec-2024 05:41:11 Europe/Berlin] Conexão com o banco estabelecida
+[26-Dec-2024 05:41:11 Europe/Berlin] SQL com limite: SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento LIMIT 50 OFFSET 250
+[26-Dec-2024 05:41:11 Europe/Berlin] Query preparada
+[26-Dec-2024 05:41:12 Europe/Berlin] Query executada
+[26-Dec-2024 05:41:12 Europe/Berlin] Resultados obtidos: 50 registros
+[26-Dec-2024 05:41:12 Europe/Berlin] SQL contagem: SELECT COUNT(*) as total FROM (SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento) as subquery
+[26-Dec-2024 05:41:13 Europe/Berlin] Total de registros: 302
+[26-Dec-2024 05:41:13 Europe/Berlin] Resposta preparada
+[26-Dec-2024 05:41:13 Europe/Berlin] Resposta enviada com sucesso
+[26-Dec-2024 16:57:04 Europe/Berlin] Iniciando execução da query
+[26-Dec-2024 16:57:04 Europe/Berlin] Arquivo de configuração carregado
+[26-Dec-2024 16:57:04 Europe/Berlin] Input recebido: {"sql":"SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento","page":1,"itemsPerPage":50}
+[26-Dec-2024 16:57:04 Europe/Berlin] SQL recebido: SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento
+[26-Dec-2024 16:57:04 Europe/Berlin] Conexão com o banco estabelecida
+[26-Dec-2024 16:57:04 Europe/Berlin] SQL com limite: SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento LIMIT 50 OFFSET 0
+[26-Dec-2024 16:57:04 Europe/Berlin] Query preparada
+[26-Dec-2024 16:57:06 Europe/Berlin] Query executada
+[26-Dec-2024 16:57:06 Europe/Berlin] Resultados obtidos: 50 registros
+[26-Dec-2024 16:57:06 Europe/Berlin] SQL contagem: SELECT COUNT(*) as total FROM (SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento) as subquery
+[26-Dec-2024 16:57:07 Europe/Berlin] Total de registros: 302
+[26-Dec-2024 16:57:07 Europe/Berlin] Resposta preparada
+[26-Dec-2024 16:57:07 Europe/Berlin] Resposta enviada com sucesso
+[26-Dec-2024 16:57:11 Europe/Berlin] Iniciando execução da query
+[26-Dec-2024 16:57:11 Europe/Berlin] Arquivo de configuração carregado
+[26-Dec-2024 16:57:11 Europe/Berlin] Input recebido: {"sql":"SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento","page":4,"itemsPerPage":50}
+[26-Dec-2024 16:57:11 Europe/Berlin] SQL recebido: SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento
+[26-Dec-2024 16:57:11 Europe/Berlin] Conexão com o banco estabelecida
+[26-Dec-2024 16:57:11 Europe/Berlin] SQL com limite: SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento LIMIT 50 OFFSET 150
+[26-Dec-2024 16:57:11 Europe/Berlin] Query preparada
+[26-Dec-2024 16:57:12 Europe/Berlin] Query executada
+[26-Dec-2024 16:57:12 Europe/Berlin] Resultados obtidos: 50 registros
+[26-Dec-2024 16:57:12 Europe/Berlin] SQL contagem: SELECT COUNT(*) as total FROM (SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento) as subquery
+[26-Dec-2024 16:57:13 Europe/Berlin] Total de registros: 302
+[26-Dec-2024 16:57:13 Europe/Berlin] Resposta preparada
+[26-Dec-2024 16:57:13 Europe/Berlin] Resposta enviada com sucesso
+[26-Dec-2024 17:05:58 Europe/Berlin] Iniciando execução da query
+[26-Dec-2024 17:05:58 Europe/Berlin] Arquivo de configuração carregado
+[26-Dec-2024 17:05:58 Europe/Berlin] Input recebido: {"sql":"SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento","page":1,"itemsPerPage":50}
+[26-Dec-2024 17:05:58 Europe/Berlin] SQL recebido: SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento
+[26-Dec-2024 17:05:58 Europe/Berlin] Conexão com o banco estabelecida
+[26-Dec-2024 17:05:58 Europe/Berlin] SQL com limite: SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento LIMIT 50 OFFSET 0
+[26-Dec-2024 17:05:58 Europe/Berlin] Query preparada
+[26-Dec-2024 17:05:59 Europe/Berlin] Query executada
+[26-Dec-2024 17:05:59 Europe/Berlin] Resultados obtidos: 50 registros
+[26-Dec-2024 17:05:59 Europe/Berlin] SQL contagem: SELECT COUNT(*) as total FROM (SELECT prd_uid, re_cnome, prd_pa, procedimento, SUM(prd_qt_p) as prd_qt_p, SUM(prd_vl_p) as prd_vl_p FROM s_prd LEFT JOIN prestador ON s_prd.prd_uid = prestador.re_cunid LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo WHERE prd_uid = '2058790' AND prd_mvm = '202312' GROUP BY prd_uid, re_cnome, prd_pa, procedimento) as subquery
+[26-Dec-2024 17:06:00 Europe/Berlin] Total de registros: 302
+[26-Dec-2024 17:06:00 Europe/Berlin] Resposta preparada
+[26-Dec-2024 17:06:00 Europe/Berlin] Resposta enviada com sucesso

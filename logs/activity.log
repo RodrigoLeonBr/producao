@@ -1,0 +1,10 @@
+[2024-12-26 00:18:37] User guest: login_failed - Tentativa de login falhou para usuário: admin
+[2024-12-26 00:19:19] User guest: login_failed - Tentativa de login falhou para usuário: admin
+[2024-12-26 00:19:51] User guest: login_failed - Tentativa de login falhou para usuário: admin
+[2024-12-26 00:20:04] User guest: login_failed - Tentativa de login falhou para usuário: admin@example.com
+[2024-12-26 00:23:22] User guest: login_failed - Tentativa de login falhou para usuário: admin
+[2024-12-26 00:24:00] User guest: register - Novo usuário registrado: rodrigo
+[2024-12-26 00:24:02] User guest: login_failed - Tentativa de login falhou para usuário: rodrigo
+[2024-12-26 00:24:08] User 3: login - Login bem-sucedido
+[2024-12-26 16:56:23] User guest: login_failed - Tentativa de login falhou para usuário: rodrigo
+[2024-12-26 16:56:29] User 3: login - Login bem-sucedido

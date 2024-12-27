@@ -1,0 +1,204 @@
+:root {
+    --sidebar-width: 250px;
+    --sidebar-collapsed-width: 70px;
+    --header-height: 80px;
+    --sidebar-transition: 0.3s;
+    --sidebar-bg: #1a2942;
+    --sidebar-hover: rgba(255,255,255,0.15);
+    --sidebar-active: rgba(255,255,255,0.25);
+    --text-light: rgba(255,255,255,0.9);
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: var(--sidebar-width);
+    background: var(--sidebar-bg);
+    background-image: linear-gradient(to bottom, #1a2942, #2c3e50);
+    color: white;
+    transition: width var(--sidebar-transition);
+    z-index: 1000;
+    overflow-x: hidden;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+}
+
+.sidebar.collapsed {
+    width: var(--sidebar-collapsed-width);
+}
+
+.sidebar-logo {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    margin-bottom: 20px;
+    background: white;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar-logo img {
+    height: 50px;
+    padding: 5px;
+    border-radius: 5px;
+    background: white;
+    transition: transform var(--sidebar-transition);
+}
+
+.collapsed .sidebar-logo img {
+    transform: scale(0.8);
+}
+
+.nav-link {
+    color: var(--text-light) !important;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    transition: all var(--sidebar-transition);
+    white-space: nowrap;
+    border-radius: 0;
+    margin: 2px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: white;
+    opacity: 0;
+    transition: opacity var(--sidebar-transition);
+}
+
+.nav-link:hover {
+    color: white !important;
+    background: var(--sidebar-hover);
+}
+
+.nav-link:hover:before {
+    opacity: 0.5;
+}
+
+.nav-link.active {
+    background: var(--sidebar-active);
+    color: white !important;
+}
+
+.nav-link.active:before {
+    opacity: 1;
+}
+
+.nav-link i {
+    min-width: 30px;
+    text-align: center;
+    font-size: 1.1em;
+    margin-right: 10px;
+}
+
+.collapsed .nav-text {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.nav-text {
+    transition: opacity var(--sidebar-transition);
+    opacity: 1;
+    visibility: visible;
+    font-weight: 500;
+}
+
+.user-info {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    background: rgba(0,0,0,0.3);
+    transition: all var(--sidebar-transition);
+    backdrop-filter: blur(5px);
+}
+
+.user-info small {
+    color: var(--text-light);
+    font-size: 0.85em;
+}
+
+.user-info .username {
+    color: white;
+    font-weight: 500;
+    display: block;
+    margin: 5px 0;
+}
+
+.collapsed .user-info {
+    padding: 10px;
+}
+
+.collapsed .user-info small,
+.collapsed .user-info .username,
+.collapsed .user-info .nav-text {
+    display: none;
+}
+
+.sidebar-toggle {
+    position: absolute;
+    right: 0;
+    top: var(--header-height);
+    padding: 10px;
+    background: rgba(0,0,0,0.3);
+    cursor: pointer;
+    border-radius: 0 0 0 10px;
+    transition: all var(--sidebar-transition);
+    color: var(--text-light);
+}
+
+.sidebar-toggle:hover {
+    color: white;
+    background: rgba(0,0,0,0.4);
+}
+
+.collapsed .sidebar-toggle {
+    transform: rotate(180deg);
+}
+
+.main-content {
+    margin-left: var(--sidebar-width);
+    padding: 20px;
+    transition: margin-left var(--sidebar-transition);
+    background: #f5f6fa;
+    margin-top: var(--header-height);
+}
+
+.main-content.expanded {
+    margin-left: var(--sidebar-collapsed-width);
+}
+
+.content-area {
+    padding: 20px 0;
+}
+
+.header-fixed {
+    position: fixed;
+    top: 0;
+    left: var(--sidebar-width);
+    right: 0;
+    height: var(--header-height);
+    background: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 999;
+    transition: left var(--sidebar-transition);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.header-fixed.expanded {
+    left: var(--sidebar-collapsed-width);
+}
