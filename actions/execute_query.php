@@ -4,6 +4,10 @@ ini_set('log_errors', 1);
 ini_set('error_log', dirname(__FILE__) . '/error.log');
 error_log("Iniciando execução da query");
 
+// Aumentar limite de tempo de execução
+ini_set('max_execution_time', 30);
+set_time_limit(30);
+
 // Desabilitar exibição de erros no output
 ini_set('display_errors', 0);
 error_reporting(E_ALL);

@@ -34,7 +34,9 @@ function getSelectedColumns() {
     checkedColumns.forEach(checkbox => {
         selectedColumns.push({
             key: checkbox.value,
-            label: checkbox.getAttribute('data-label')
+            label: checkbox.getAttribute('data-label'),
+            table: checkbox.getAttribute('data-table'),
+            isTotal: checkbox.getAttribute('data-is-total') === 'true'
         });
     });
     
@@ -48,12 +50,28 @@ function generateSQL() {
 
     const filters = getFilters();
     
-    // Tabelas necessárias baseadas nas colunas selecionadas
+    // Determinar quais tabelas precisam de JOIN
     const tables = new Set();
     selectedColumns.forEach(col => {
-        if (col.key.startsWith('prd_')) tables.add('s_prd');
-        if (col.key.startsWith('re_')) tables.add('prestador');
-        if (col.key === 'descricao' || col.key === 'prd_pa') tables.add('procedimento');
+        // Verifica se a coluna pertence a uma tabela específica
+        if (col.table === 'prestador' || col.key.startsWith('prestador.')) {
+            tables.add('prestador');
+        }
+        if (col.table === 'procedimento' || col.key.startsWith('procedimento.')) {
+            tables.add('procedimento');
+        }
+        if (col.table === 'cbo' || col.key.startsWith('cbo.')) {
+            tables.add('cbo');
+        }
+        if (col.table === 'grupo' || col.key.startsWith('grupo.')) {
+            tables.add('grupo');
+        }
+        if (col.table === 'subgrupo' || col.key.startsWith('subgrupo.')) {
+            tables.add('subgrupo');
+        }
+        if (col.table === 'forma' || col.key.startsWith('forma.')) {
+            tables.add('forma');
+        }
     });
 
     // Construir a consulta SQL
@@ -62,8 +80,13 @@ function generateSQL() {
     // Adicionar colunas selecionadas
     const columnsSql = selectedColumns.map(col => {
         // Tratar campos totalizáveis
-        if (['prd_qt_a', 'prd_qt_p', 'prd_vl_p'].includes(col.key)) {
+        if (col.isTotal) {
             return `SUM(${col.key}) as ${col.key}`;
+        }
+        // Tratar campos com referência de tabela
+        if (col.key.includes('.')) {
+            const [table, field] = col.key.split('.');
+            return `${table}.${field} as "${col.key}"`;
         }
         return col.key;
     }).join(', ');
@@ -80,6 +103,18 @@ function generateSQL() {
     }
     if (tables.has('procedimento')) {
         sql += ' LEFT JOIN procedimento ON s_prd.prd_pa = procedimento.codigo';
+    }
+    if (tables.has('cbo')) {
+        sql += ' LEFT JOIN cbo ON s_prd.prd_cbo = cbo.CBO';
+    }
+    if (tables.has('grupo')) {
+        sql += ' LEFT JOIN grupo ON SUBSTRING(s_prd.prd_pa, 1, 2) = grupo.co_grupo';
+    }
+    if (tables.has('subgrupo')) {
+        sql += ' LEFT JOIN subgrupo ON SUBSTRING(s_prd.prd_pa, 1, 4) = subgrupo.co_sub_grupo';
+    }
+    if (tables.has('forma')) {
+        sql += ' LEFT JOIN forma ON SUBSTRING(s_prd.prd_pa, 1, 6) = forma.co_forma';
     }
     
     // WHERE
@@ -100,13 +135,18 @@ function generateSQL() {
         }).join(' AND ');
     }
     
-    // GROUP BY para campos totalizáveis
-    const nonAggregateColumns = selectedColumns.filter(col => 
-        !['prd_qt_a', 'prd_qt_p', 'prd_vl_p'].includes(col.key)
-    );
+    // GROUP BY
+    const groupByColumns = selectedColumns
+        .filter(col => !col.isTotal)
+        .map(col => {
+            if (col.key === 'descricao') {
+                return 'cbo.DESCRICAO';
+            }
+            return col.key;
+        });
     
-    if (nonAggregateColumns.length > 0) {
-        sql += ' GROUP BY ' + nonAggregateColumns.map(col => col.key).join(', ');
+    if (groupByColumns.length > 0) {
+        sql += ' GROUP BY ' + groupByColumns.join(', ');
     }
     
     return sql;
@@ -114,7 +154,14 @@ function generateSQL() {
 
 // Função para executar a consulta
 async function executeQuery() {
+    const executeButton = document.getElementById('executeQuery');
+    const originalContent = executeButton.innerHTML;
+    
     try {
+        // Mostrar indicador de carregamento
+        executeButton.innerHTML = '<i class="fas fa-spinner loading-spinner"></i> Executando...';
+        executeButton.disabled = true;
+        
         const selectedColumns = getSelectedColumns();
         console.log('Colunas selecionadas:', selectedColumns);
         
@@ -177,7 +224,7 @@ async function executeQuery() {
         updateTable(currentData);
         
         // Atualizar a paginação
-        updatePagination();
+        updatePagination(totalItems);
         
         // Habilitar botões de exportação
         enableExportButtons();
@@ -191,157 +238,218 @@ async function executeQuery() {
         if (sqlPreview) {
             sqlPreview.textContent = '';
         }
+    } finally {
+        // Restaurar botão ao estado original
+        executeButton.innerHTML = originalContent;
+        executeButton.disabled = false;
     }
 }
 
 // Função para atualizar a tabela
 function updateTable(data) {
-    const tableContainer = document.getElementById('results-container');
-    const thead = document.getElementById('results-header');
-    const tbody = document.getElementById('results-table');
+    const resultsContainer = document.getElementById('results-container');
+    const table = document.getElementById('resultsTable');
+    if (!table) return;
     
-    if (!thead || !tbody) {
-        console.error('Elementos da tabela não encontrados:', { thead, tbody });
-        return;
-    }
-    
-    // Limpar tabela atual
-    thead.innerHTML = '';
-    tbody.innerHTML = '';
+    // Limpar tabela
+    table.innerHTML = '';
     
     if (!data || data.length === 0) {
-        console.log('Nenhum dado para exibir');
-        tableContainer.style.display = 'none';
+        const emptyRow = document.createElement('tr');
+        const emptyCell = document.createElement('td');
+        emptyCell.colSpan = '100%';
+        emptyCell.textContent = 'Nenhum resultado encontrado';
+        emptyCell.className = 'text-center py-3';
+        emptyRow.appendChild(emptyCell);
+        table.appendChild(emptyRow);
         return;
     }
     
-    // Mostrar a tabela
-    tableContainer.style.display = 'block';
+    // Mostrar o container de resultados
+    if (resultsContainer) {
+        resultsContainer.style.display = 'block';
+    }
     
-    // Criar cabeçalho
-    const headerRow = document.createElement('tr');
+    // Obter colunas selecionadas na ordem correta
     const selectedColumns = getSelectedColumns();
     
-    selectedColumns.forEach(col => {
+    // Criar cabeçalho
+    const thead = document.createElement('thead');
+    const headerRow = document.createElement('tr');
+    
+    selectedColumns.forEach(column => {
         const th = document.createElement('th');
-        th.textContent = col.label;
+        th.textContent = column.label;
+        th.className = 'align-middle';
         headerRow.appendChild(th);
     });
     
-    if (data[0].hasOwnProperty('ativo')) {
-        const th = document.createElement('th');
-        th.textContent = 'Ativo';
-        headerRow.appendChild(th);
-    }
-    
     thead.appendChild(headerRow);
+    table.appendChild(thead);
     
-    // Criar linhas de dados
+    // Criar corpo da tabela
+    const tbody = document.createElement('tbody');
+    
     data.forEach(row => {
         const tr = document.createElement('tr');
-        if (row.hasOwnProperty('ativo') && !row.ativo) {
-            tr.classList.add('prestador-inativo');
-        }
-        selectedColumns.forEach(col => {
+        
+        selectedColumns.forEach(column => {
             const td = document.createElement('td');
-            let value = row[col.key];
+            let value;
             
-            // Formatar números
-            if (['prd_qt_a', 'prd_qt_p', 'prd_vl_p'].includes(col.key)) {
-                value = formatNumber(value);
+            // Lidar com campos de tabelas relacionadas
+            if (column.key.includes('.')) {
+                const [table, field] = column.key.split('.');
+                // Tentar obter o valor usando a chave completa ou apenas o campo
+                value = row[column.key] || row[field] || '';
+            } else {
+                value = row[column.key];
+            }
+            
+            // Formatação especial para valores numéricos
+            if (column.isTotal) {
+                if (column.key === 'prd_vl_p') {
+                    value = formatCurrency(value);
+                } else {
+                    value = formatNumber(value);
+                }
             }
             
             td.textContent = value || '';
+            td.className = 'align-middle';
             tr.appendChild(td);
         });
-        if (row.hasOwnProperty('ativo')) {
-            const td = document.createElement('td');
-            td.textContent = row.ativo ? 'Sim' : 'Não';
-            tr.appendChild(td);
-        }
+        
         tbody.appendChild(tr);
     });
+    
+    table.appendChild(tbody);
 }
 
 // Função para atualizar a paginação
-function updatePagination() {
-    const pagination = document.getElementById('pagination');
-    if (!pagination) return;
-    
+function updatePagination(totalItems) {
     const totalPages = Math.ceil(totalItems / itemsPerPage);
-    
-    // Limpar paginação atual
+    const pagination = document.getElementById('pagination');
     pagination.innerHTML = '';
-    
-    // Criar elementos de paginação
+
+    if (totalPages <= 1) return;
+
     const ul = document.createElement('ul');
-    ul.className = 'pagination justify-content-center';
-    
-    // Botão anterior
-    const prevLi = document.createElement('li');
-    prevLi.className = `page-item ${currentPage === 1 ? 'disabled' : ''}`;
-    const prevLink = document.createElement('a');
-    prevLink.className = 'page-link';
-    prevLink.href = '#';
-    prevLink.textContent = 'Anterior';
-    prevLink.onclick = (e) => {
-        e.preventDefault();
-        if (currentPage > 1) {
-            currentPage--;
-            executeQuery();
+    ul.className = 'pagination';
+
+    // Primeiro
+    ul.appendChild(createPageItem('«', 1, currentPage === 1, 'Primeira página'));
+
+    // Anterior
+    ul.appendChild(createPageItem('‹', currentPage - 1, currentPage === 1, 'Anterior'));
+
+    // Calcular intervalo de páginas
+    let startPage = Math.max(1, currentPage - 3);
+    let endPage = Math.min(totalPages, currentPage + 3);
+
+    // Ajustar intervalo se estiver próximo ao início ou fim
+    if (currentPage <= 4) {
+        endPage = Math.min(7, totalPages);
+    }
+    if (currentPage > totalPages - 4) {
+        startPage = Math.max(1, totalPages - 6);
+    }
+
+    // Adicionar primeira página e reticências se necessário
+    if (startPage > 1) {
+        ul.appendChild(createPageItem('1', 1));
+        if (startPage > 2) {
+            ul.appendChild(createEllipsis());
         }
-    };
-    prevLi.appendChild(prevLink);
-    ul.appendChild(prevLi);
-    
-    // Páginas
-    for (let i = 1; i <= totalPages; i++) {
+    }
+
+    // Páginas numeradas
+    for (let i = startPage; i <= endPage; i++) {
         const li = document.createElement('li');
-        li.className = `page-item ${i === currentPage ? 'active' : ''}`;
-        const link = document.createElement('a');
-        link.className = 'page-link';
-        link.href = '#';
-        link.textContent = i;
-        link.onclick = (e) => {
+        li.className = `page-item${currentPage === i ? ' active' : ''}`;
+        
+        const a = document.createElement('a');
+        a.className = 'page-link';
+        a.href = '#';
+        a.textContent = i;
+        a.onclick = (e) => {
             e.preventDefault();
-            currentPage = i;
-            executeQuery();
+            if (currentPage !== i) {
+                currentPage = i;
+                executeQuery();
+            }
         };
-        li.appendChild(link);
+        
+        li.appendChild(a);
         ul.appendChild(li);
     }
-    
-    // Botão próximo
-    const nextLi = document.createElement('li');
-    nextLi.className = `page-item ${currentPage === totalPages ? 'disabled' : ''}`;
-    const nextLink = document.createElement('a');
-    nextLink.className = 'page-link';
-    nextLink.href = '#';
-    nextLink.textContent = 'Próximo';
-    nextLink.onclick = (e) => {
-        e.preventDefault();
-        if (currentPage < totalPages) {
-            currentPage++;
-            executeQuery();
+
+    // Adicionar última página e reticências se necessário
+    if (endPage < totalPages) {
+        if (endPage < totalPages - 1) {
+            ul.appendChild(createEllipsis());
         }
-    };
-    nextLi.appendChild(nextLink);
-    ul.appendChild(nextLi);
-    
+        ul.appendChild(createPageItem(totalPages.toString(), totalPages));
+    }
+
+    // Próximo
+    ul.appendChild(createPageItem('›', currentPage + 1, currentPage === totalPages, 'Próximo'));
+
+    // Último
+    ul.appendChild(createPageItem('»', totalPages, currentPage === totalPages, 'Última página'));
+
     pagination.appendChild(ul);
+}
+
+function createPageItem(text, page, disabled = false, title = '') {
+    const li = document.createElement('li');
+    li.className = `page-item${disabled ? ' disabled' : ''}`;
+    
+    const a = document.createElement('a');
+    a.className = 'page-link';
+    a.href = '#';
+    a.textContent = text;
+    if (title) a.title = title;
+    
+    if (!disabled) {
+        a.onclick = (e) => {
+            e.preventDefault();
+            if (currentPage !== page) {
+                currentPage = page;
+                executeQuery();
+            }
+        };
+    }
+    
+    li.appendChild(a);
+    return li;
+}
+
+function createEllipsis() {
+    const li = document.createElement('li');
+    li.className = 'page-item disabled';
+    
+    const span = document.createElement('span');
+    span.className = 'page-link';
+    span.textContent = '...';
+    
+    li.appendChild(span);
+    return li;
 }
 
 // Função para formatar números
 function formatNumber(value) {
     if (value === null || value === undefined) return '';
-    
-    const num = parseFloat(value);
-    if (isNaN(num)) return value;
-    
+    return new Intl.NumberFormat('pt-BR').format(value);
+}
+
+// Função para formatar moeda
+function formatCurrency(value) {
+    if (value === null || value === undefined) return '';
     return new Intl.NumberFormat('pt-BR', {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2
-    }).format(num);
+        style: 'currency',
+        currency: 'BRL'
+    }).format(value);
 }
 
 // Função para formatar números no formato brasileiro

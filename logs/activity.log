@@ -8,3 +8,7 @@
 [2024-12-26 00:24:08] User 3: login - Login bem-sucedido
 [2024-12-26 16:56:23] User guest: login_failed - Tentativa de login falhou para usuário: rodrigo
 [2024-12-26 16:56:29] User 3: login - Login bem-sucedido
+[2025-01-06 15:42:16] User guest: login_failed - Tentativa de login falhou para usuário: informacao@saudeamericana.com.br
+[2025-01-06 15:42:32] User guest: login_failed - Tentativa de login falhou para usuário: rodrigo.diaz.leon@gmail.com
+[2025-01-06 15:44:22] User guest: login_failed - Tentativa de login falhou para usuário: admin
+[2025-01-06 15:44:29] User 3: login - Login bem-sucedido
